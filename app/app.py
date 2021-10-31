@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template
+from flask import Flask
+from flask.globals import request
 from flask.templating import render_template
 app = Flask(__name__)
 
@@ -42,7 +43,18 @@ def student(name, age):
     return render_template('student.html', data=data)
 
 
+def query_string():
+    """[Implementing query string, to handle dinamic inputs]
+    """
+    print(request)
+    print(request.args)
+    print(request.args.get('param1'))
+    print(request.args.get('param2'))
+    return "ok"
+
+
 if __name__ == "__main__":
     """[Main function to run the application]
     """
+    app.add_url_rule('/query_string', view_func=query_string)
     app.run(debug=True, port=5001)
