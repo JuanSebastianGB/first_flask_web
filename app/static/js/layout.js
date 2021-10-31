@@ -1,1 +1,1 @@
-alert("Testing js importation into the project")
+// alert("Testing js importation into the project")

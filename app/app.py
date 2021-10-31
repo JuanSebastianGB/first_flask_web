@@ -23,6 +23,15 @@ def index():
     return render_template("index.html", data=data)
 
 
+@app.route('/student/<name>')
+def student(name):
+    data = {
+        'title': 'Student',
+        'name': name
+    }
+    return render_template('student.html', data=data)
+
+
 if __name__ == "__main__":
     """[Main function to run the application]
     """
