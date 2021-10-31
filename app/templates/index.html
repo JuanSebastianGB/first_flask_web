@@ -10,11 +10,15 @@
 
 <body>
     <h1>{{data.msj}}</h1>
+    {% if data.nro_students > 0 %}
     <ul>
-        {% for el in data.students%}
-        <li>{{el}}</li>
+        {% for student in data.students%}
+        <li>{{ student }}</li>
         {% endfor%}
     </ul>
+    {% else %}
+    <h2>Not students added</h2>
+    {% endif %}
 </body>
 
 </html>

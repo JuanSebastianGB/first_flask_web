@@ -13,6 +13,7 @@ def index():
     """
     # return "<h1>Hellow world!!!!</h1>"
     students = ['Juan', 'Amaya', 'Andres', 'Lisa']
+    #students = []
     data = {
         'title': 'First Flask app',
         'msj': 'Be welcome to this new app',
