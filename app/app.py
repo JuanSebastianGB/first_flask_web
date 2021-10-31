@@ -12,9 +12,12 @@ def index():
         [str]: [This return a msj]
     """
     # return "<h1>Hellow world!!!!</h1>"
+    students = ['Juan', 'Amaya', 'Andres', 'Lisa']
     data = {
-        'title': 'New title',
-        'msj': 'be welcome'
+        'title': 'First Flask app',
+        'msj': 'Be welcome to this new app',
+        'students': students,
+        'nro_students': len(students)
     }
     return render_template("index.html", data=data)
 
