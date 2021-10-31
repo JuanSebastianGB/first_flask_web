@@ -23,11 +23,21 @@ def index():
     return render_template("index.html", data=data)
 
 
-@app.route('/student/<name>')
-def student(name):
+@app.route('/student/<name>/<int:age>')
+def student(name, age):
+    """[Student class, just for testing]
+
+    Args:
+        name ([str]): [Name of the student]
+        name ([int]): [Age of the student]
+
+    Returns:
+        [Template]: [Rendered student's template to show]
+    """
     data = {
         'title': 'Student',
-        'name': name
+        'name': name,
+        'age': age
     }
     return render_template('student.html', data=data)
 
