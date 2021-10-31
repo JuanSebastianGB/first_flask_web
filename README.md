@@ -1,0 +1,1 @@
+# This is a project to learn how to use Flask to create apps
