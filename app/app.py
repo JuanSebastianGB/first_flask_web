@@ -6,6 +6,22 @@ from werkzeug.utils import redirect
 app = Flask(__name__)
 
 
+@app.before_request
+def before_request():
+    """[Testing code to use before a request]
+    """
+    print("before of the request")
+
+
+@app.after_request
+def after_request(response):
+    """[Testing code to use after the request]
+    """
+
+    print("After the request")
+    return response
+
+
 @app.route('/')
 def index():
     """[View of the intex of the created page]
