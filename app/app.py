@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from flask import Flask
+from flask import Flask, url_for
 from flask.globals import request
 from flask.templating import render_template
+from werkzeug.utils import redirect
 app = Flask(__name__)
 
 
@@ -54,7 +55,8 @@ def query_string():
 
 
 def page_not_found(error):
-    return render_template('404.html'), 404
+    # return render_template('404.html'), 404
+    return redirect(url_for('index'))
 
 
 if __name__ == "__main__":
