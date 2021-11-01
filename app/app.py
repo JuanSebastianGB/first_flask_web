@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
 from flask import Flask, url_for
 from flask.globals import request
+from flask.json import jsonify
 from flask.templating import render_template
 from werkzeug.utils import redirect
+from flask_mysqldb import MySQL
 app = Flask(__name__)
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'biomedica'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'biomedica'
+
+conection = MySQL(app)
 
 
 @app.before_request
@@ -68,6 +77,24 @@ def query_string():
     print(request.args.get('param1'))
     print(request.args.get('param2'))
     return "ok"
+
+
+@app.route('/students')
+def show_students():
+    data = {
+
+    }
+    try:
+        cursor = conection.connection.cursor()
+        sql = "SELECT * FROM student"
+        cursor.execute(sql)
+        students = cursor.fetchall()
+        print("All the students are:", students)
+        data['msj'] = 'Well done..'
+
+    except Exception as ex:
+        data['msj'] = 'Error..'
+    return jsonify(data)
 
 
 def page_not_found(error):
